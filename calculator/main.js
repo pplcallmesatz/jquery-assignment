@@ -3,10 +3,12 @@ var display = $(".display"),
 	symbol = $(".symbol"),
 	equal = $("#equal"),
 	clear = $("#clear"),
+    percentBtn = $("#percentBtn"),
 	operator = false,
 	operatorInit = false,
 	totalValue = "",
 	equalTo = false,
+    equalToTotalVal ="",
 	operatorVal = "";
 
 
@@ -19,8 +21,11 @@ number.click(function(){
 	}
 	if(equalTo === true){
 		display.empty();
+        totalValue = "";
+        equalToTotalVal="";
 		equalTo = false; 
 	}
+
 	var typingNumber = $(this).text();
 	display.append(typingNumber);
 	if(operatorInit === false) {
@@ -29,21 +34,29 @@ number.click(function(){
 });
 
 symbol.click(function(){
+    if(equalTo === true){
+		display.empty();
+        operatorVal = indexVal;
+		equalTo = false; 
+	}
+      if(equalToTotalVal !== "") {
+         totalValue = equalToTotalVal;
+         
+        var a = "equalToTotalVal : " + equalToTotalVal;
+        alertt(a);
+        equalToTotalVal = "";
+    }
+
 	var dispalytext = display.text();
 	var indexVal = symbol.index(this) + 1;
 	operator = true;
-	operatorVal = indexVal;
-	if((totalValue !== "")&&(operatorInit === true)&&(indexVal <= 4)){
-		cahinCalc(dispalytext, indexVal);
+    
+if((totalValue !== "")&&(operatorInit === true)&&(indexVal <= 4)&&(equalToTotalVal === "")){
+		cahinCalc(dispalytext, operatorVal);
+        operatorVal = indexVal;
 	}
 	else {
-		if(indexVal === 5){
-		var percentage =  parseInt(dispalytext)/100;
-		display.empty();
-		display.append(percentage);
-		totalValue = percentage;
-			}
-	
+         operatorVal = indexVal;
 	}
 	operatorInit = true;
 });
@@ -52,6 +65,13 @@ equal.click(function(){
 	equaltoOperation(totalValue, currentVal, operatorVal);
 	operatorVal = "";
 	equalTo = true;
+});
+percentBtn.click(function(){
+    console.log("%");
+    var percentage =  parseInt(dispalytext)/100;
+		display.empty();
+		display.append(percentage);
+		totalValue = percentage;
 });
 
 function cahinCalc(disptext, operatorVal) {
@@ -86,37 +106,51 @@ function equaltoOperation(total,disptext,operatorVal){
 		var add = parseInt(total) + parseInt(disptext);
 		display.empty();
 		display.append(add);
+        equalToTotalVal = add;
 		totalValue = "";
 		operatorInit = false;
-
+        var a = "addition total : " + add;
+        alertt(a);
 	}
 	if(operatorVal === 2) {
 		var subtract = parseInt(totalValue) - parseInt(disptext);
 		display.empty();
 		display.append(subtract);
 		totalValue = subtract;
+        equalToTotalVal = subtract;
 		totalValue = "";
 		operatorInit = false;
+        var a = "subtract total : " + subtract;
+        alertt(a);
 	}
 	if(operatorVal === 3) {
 		var multiplication = parseInt(totalValue) * parseInt(disptext);
 		display.empty();
 		display.append(multiplication);
 		totalValue = multiplication;
+        equalToTotalVal = multiplication;
 		totalValue = "";
 		operatorInit = false;
+         var a = "multiplication total : " + multiplication;
+        alertt(a);
 	}
 	if(operatorVal === 4) {
 		var division = parseInt(totalValue) / parseInt(disptext);
 		display.empty();
 		display.append(division);
 		totalValue = division;
+        equalToTotalVal = division;
 		totalValue = "";
 		operatorInit = false;
+         var a = "division total : " + division;
+        alertt(a);
 	}
+    
 	
 }
-
+function alertt(aValue) {
+    console.log(aValue);
+}
 
 clear.click(function(){
 	display.empty();
@@ -125,5 +159,7 @@ clear.click(function(){
 	operator = false;
 	operatorInit = false;
 	totalValue = "";
+    equalToTotalVal = "";
 	equalTo = false;
+    operatorVal = "";
 });
