@@ -68,7 +68,8 @@ equal.click(function(){
 });
 percentBtn.click(function(){
     console.log("%");
-    var percentage =  parseInt(dispalytext)/100;
+    var perDispText = display.text();
+    var percentage =  parseInt(perDispText) / 100;
 		display.empty();
 		display.append(percentage);
 		totalValue = percentage;
