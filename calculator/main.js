@@ -69,7 +69,7 @@ equal.click(function(){
 percentBtn.click(function(){
     console.log("%");
     var perDispText = display.text();
-    var percentage =  parseInt(perDispText) / 100;
+    var percentage =  parseFloat(perDispText) / 100;
 		display.empty();
 		display.append(percentage);
 		totalValue = percentage;
@@ -77,25 +77,25 @@ percentBtn.click(function(){
 
 function cahinCalc(disptext, operatorVal) {
 	if(operatorVal === 1) {
-		var add = parseInt(totalValue) + parseInt(disptext);
+		var add = parseFloat(totalValue) + parseFloat(disptext);
 		display.empty();
 		display.append(add);
 		totalValue = add;
 	}
 	if(operatorVal === 2) {
-		var subtract = parseInt(totalValue) - parseInt(disptext);
+		var subtract = parseFloat(totalValue) - parseFloat(disptext);
 		display.empty();
 		display.append(subtract);
 		totalValue = subtract;
 	}
 	if(operatorVal === 3) {
-		var multiplication = parseInt(totalValue) * parseInt(disptext);
+		var multiplication = parseFloat(totalValue) * parseFloat(disptext);
 		display.empty();
 		display.append(multiplication);
 		totalValue = multiplication;
 	}
 	if(operatorVal === 4) {
-		var division = parseInt(totalValue) / parseInt(disptext);
+		var division = parseFloat(totalValue) / parseFloat(disptext);
 		display.empty();
 		display.append(division);
 		totalValue = division;
@@ -104,7 +104,7 @@ function cahinCalc(disptext, operatorVal) {
 }
 function equaltoOperation(total,disptext,operatorVal){
 	if(operatorVal === 1) {
-		var add = parseInt(total) + parseInt(disptext);
+		var add = parseFloat(total) + parseFloat(disptext);
 		display.empty();
 		display.append(add);
         equalToTotalVal = add;
@@ -114,7 +114,7 @@ function equaltoOperation(total,disptext,operatorVal){
         alertt(a);
 	}
 	if(operatorVal === 2) {
-		var subtract = parseInt(totalValue) - parseInt(disptext);
+		var subtract = parseFloat(totalValue) - parseFloat(disptext);
 		display.empty();
 		display.append(subtract);
 		totalValue = subtract;
@@ -125,7 +125,7 @@ function equaltoOperation(total,disptext,operatorVal){
         alertt(a);
 	}
 	if(operatorVal === 3) {
-		var multiplication = parseInt(totalValue) * parseInt(disptext);
+		var multiplication = parseFloat(totalValue) * parseFloat(disptext);
 		display.empty();
 		display.append(multiplication);
 		totalValue = multiplication;
@@ -136,7 +136,7 @@ function equaltoOperation(total,disptext,operatorVal){
         alertt(a);
 	}
 	if(operatorVal === 4) {
-		var division = parseInt(totalValue) / parseInt(disptext);
+		var division = parseFloat(totalValue) / parseFloat(disptext);
 		display.empty();
 		display.append(division);
 		totalValue = division;
