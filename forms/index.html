@@ -4,33 +4,36 @@
   <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale-1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Calculator</title>
+  <title>Form</title>
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 
       <style>
-    .display {
-line-height: 50px;
-color: #000;
-  border: 1px solid gray;
-  height: 50px;
-  font-size: 30px;
-}
-		  div {
-			  margin-bottom: 20px;
-			  margin-right: 10px;
-			  margin-left: 10px;
-		  }
-		  button {
-			  margin-top: 5px;
-		  }
+
     </style>
 
   
 </head>
 
 <body>
- 
+    <div class="container">
+    <div class="form-group">
+            <label>Forms only alphabets (no numbers &amp; no symbols)</label>
+
+    <input class="form-control" type="text" id="one">
+    </div>
+        <div class="form-group">
+            <label>Forms only Numbers (no alphabets &amp; no symbols)</label>
+
+    <input class="form-control" type="text" id="two">
+    </div>
+        
+            <div class="form-group">
+            <label>Forms only symbols (no alphabets &amp; no numbers)</label>
+
+    <input class="form-control" type="text" id="three">
+    </div>
+ </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
 
