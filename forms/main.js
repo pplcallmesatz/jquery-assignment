@@ -12,7 +12,7 @@ $(document).ready(function(){
     })
      $("#three").on('input',function(){
        var node = $(this);
-    node.val(node.val().replace(/^[a-zA-Z0-9]/g,'') ); 
+    node.val(node.val().replace(/\w/,'') ); 
     })
     
 });
