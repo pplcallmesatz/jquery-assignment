@@ -168,7 +168,11 @@ function expansion(wholeWidth, navItemWidth, currentDropWidth){
     
     if ((expWidth + 50) < wholeWidth) {
 //        console.log("expla")
-        $(".dropdown-item").first().removeClass("dropdown-item").addClass("nav-item").insertBefore(".dropdown");
+        var ss = $(".dropdown").before('<li class=\"nav-item\"></li>')
+        var dd = $(".dropdown-item").first().removeClass("dropdown-item").addClass("nav-link").detach();
+        var ff = $(".nav .nav-item").last().prev();
+       dd.appendTo(ff);
+         dd = null;
     }
     
 }
@@ -191,7 +195,8 @@ function contraction(wholeWidth, navItemWidth, dropItemWidth){
         diw = dropItemWidth;
     if((navItemWidth + 50) > ww ){
         
-        navItem.last().prev().addClass("dropdown-item").removeClass("nav-item").detach().prependTo(dropDownMenu);
+        navItem.last().prev().find(".nav-link").addClass("dropdown-item").removeClass("nav-link").detach().prependTo(dropDownMenu);
+        navItem.last().prev().detach();
        dropDownCount();
     }
     
